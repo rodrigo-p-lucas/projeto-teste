@@ -42,7 +42,7 @@ namespace ProjetoTeste.WebAPI.Controllers
                 var retorno = await Mediator.Send(command);
 
                 if (!Guid.TryParse(retorno, out guidAux)) { return BadRequest(retorno); }
-                return NoContent();
+                return Ok(guidAux.ToString());
             }
 
             return BadRequest("Não foi possível converter o id em GUID");
